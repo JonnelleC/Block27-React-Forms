@@ -9,9 +9,11 @@ export default function SignUpForm() {
     event.preventDefault();
 
     try {
-        const response = await fetch("https://fsa-jwt-practice.herokuapp.com/signup");
-const result = await response.json();
-console.log(result);
+      const response = await fetch(
+        "https://fsa-jwt-practice.herokuapp.com/signup"
+      );
+      const result = await response.json();
+      console.log(result);
     } catch (error) {
       setError(error.message);
     }
@@ -19,33 +21,28 @@ console.log(result);
 
   return (
     <>
-            <h2>Sign Up</h2>
-            {error && <p>{error}</p>}
-            
+      <h2>Sign Up</h2>
+      {error && <p>{error}</p>}
+
       <form onSubmit={handleSubmit}>
-                
         <label>
-                    Username:           
+          Username:
           <input
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-                  
         </label>
-                
+
         <label>
-                    Password:           
+          Password:
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-                           
         </label>
-                <button>Submit</button>
-              
+        <button>Submit</button>
       </form>
-          
     </>
   );
 }
